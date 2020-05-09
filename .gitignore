@@ -1,0 +1,7 @@
+Board_tests.cpp
+Debug/
+.vs/
+Sudoku.sln
+Sudoku.vcxproj
+Sudoku.vcxproj.filters
+Sudoku.vcxproj.user
