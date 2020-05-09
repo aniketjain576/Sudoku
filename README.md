@@ -1,7 +1,7 @@
 # Sudoku #
 Solves sudoku puzzles and generates them for you!
 
-##Input##
+## Input ##
 The input.txt file is where you type the sudoku puzzle you want solved.
 The format of the input is as follows:
   Enter each number separated by a space and start a new line after 9 digits.
