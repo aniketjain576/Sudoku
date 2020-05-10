@@ -98,37 +98,37 @@ void read_input(int input_puzzle[9][9]) {
 
 string user_intention() {
     string intention = "";
-    cout <<purple<<bg_white<< "Welcome to the Sudoku Solver!" <<bg_def<< endl;
-    cout <<bg_white<< "We can solve a puzzle or generate one for you!" <<bg_def<< endl;
-    cout <<bg_white<< "Would you like to [solve], [generate], or [exit]?" <<def<<bg_def<< endl;
+    cout << purple << bg_white << "Welcome to the Sudoku Solver!" << bg_def << endl;
+    cout << bg_white << "We can solve a puzzle or generate one for you!" << bg_def << endl;
+    cout << bg_white << "Would you like to [solve], [generate], or [exit]?" << def << bg_def << endl;
 
     while (cin >> intention) {
         if (intention == "solve" || intention == "generate" || intention == "exit") {
             return intention;
         }
-        cout <<bg_white<<red << "Something went wrong :(" <<def<<bg_def<< endl;
-        cout <<bg_white<<purple << "Please type [solve],[generate], or [exit]" <<def<<bg_def<< endl;
+        cout << bg_white << red << "Something went wrong :(" << def << bg_def << endl;
+        cout << bg_white << purple << "Please type [solve],[generate], or [exit]" << def << bg_def << endl;
     }
     return "exit";
 }
 
 void intent_solve(Solver& solve) {
-    cout <<bg_white<<purple<< "This is the puzzle:    " <<bg_def<<def<< endl;
+    cout << bg_white << purple << "This is the puzzle:    " << bg_def << def << endl;
     solve.print();
     if (solve.solve_grid()) {
-        cout <<endl <<bg_white<<purple<< "Here's the solution!   " <<bg_def<<def<< endl;
+        cout << endl << bg_white << purple << "Here's the solution!   " << bg_def << def << endl;
         solve.print();
     }
     else {
-        cout <<bg_white<<purple<< "Hmm there doesn't seem to be a solution to this." <<bg_def<<def<< endl;
+        cout << bg_white << purple << "Hmm there doesn't seem to be a solution to this." << bg_def << def << endl;
     }
 }
 
 void intent_generate(Solver& solve) {
-    cout <<bg_white<<purple<< "Please select a difficulty level" <<bg_def<< endl;
-    cout <<bg_white<< "Easy  " <<bg_def<< endl;
-    cout <<bg_white<< "Medium" <<bg_def<< endl;
-    cout <<bg_white<< "Hard  " <<bg_def<< def <<endl;
+    cout << bg_white << purple << "Please select a difficulty level" << bg_def << endl;
+    cout << bg_white << "Easy  " << bg_def << endl;
+    cout << bg_white << "Medium" << bg_def << endl;
+    cout << bg_white << "Hard  " << bg_def << def <<endl;
     string difficulty;
     
     while (cin >> difficulty) {
@@ -138,15 +138,15 @@ void intent_generate(Solver& solve) {
         if (difficulty == "easy" || difficulty == "medium" || difficulty == "hard") {
             break;
         }
-        cout <<bg_white<<red<< "Invalid input" <<def<<bg_def<< endl;
-        cout <<bg_white<<purple<< "[1] Easy  " <<bg_def<< endl;
-        cout <<bg_white<< "[2] Medium" <<bg_def<< endl;
-        cout <<bg_white<< "[3] Hard  " <<bg_def<< endl;
-        cout <<bg_white<< "Please select 1, 2, or 3" <<bg_def<<def<< endl;
+        cout << bg_white << red << "Invalid input" << def << bg_def << endl;
+        cout << bg_white << purple << "[1] Easy  " << bg_def << endl;
+        cout << bg_white << "[2] Medium" << bg_def << endl;
+        cout << bg_white << "[3] Hard  " << bg_def << endl;
+        cout << bg_white << "Please select 1, 2, or 3" << bg_def << def << endl;
     }
     solve.solve_grid();
     solve.make_puzzle(difficulty);
-    cout <<bg_white<<blue<< "Try solving this!      " <<bg_def<<def<< endl;
+    cout << bg_white << blue << "Try solving this!      " << bg_def << def << endl;
     solve.print_transpose();
 }
 
