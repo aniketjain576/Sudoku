@@ -15,15 +15,10 @@ const int NUM_COLS = 9;
 namespace Color {
     enum Code {
         FG_RED = 31,
-        FG_GREEN = 32,
-        FG_YELLOW = 33,
         FG_BLUE = 34,
         FG_PURPLE = 35,
         FG_BLACK = 30,
         FG_DEFAULT = 39,
-        BG_RED = 41,
-        BG_GREEN = 42,
-        BG_BLUE = 44,
         BG_DEFAULT = 49,
         BG_WHITE = 47,
     };
@@ -41,12 +36,10 @@ namespace Color {
 Color::Modifier red(Color::FG_RED);
 Color::Modifier def(Color::FG_DEFAULT);
 Color::Modifier blue(Color::FG_BLUE);
-Color::Modifier black(Color::FG_BLACK);
-Color::Modifier green(Color::FG_GREEN);
-Color::Modifier yellow(Color::FG_YELLOW);
+Color::Modifier purple(Color::FG_PURPLE);
 Color::Modifier bg_white(Color::BG_WHITE);
 Color::Modifier bg_def(Color::BG_DEFAULT);
-Color::Modifier purple(Color::FG_PURPLE);
+Color::Modifier black(Color::FG_BLACK);
 
 
 
