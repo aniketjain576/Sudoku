@@ -6,12 +6,13 @@
 
 using namespace std;
 
+//global constants that describe the size of the board
+//and what an unassigned space is
 const int UNASSIGNED = 0;
 const int NUM_ROWS = 9;
 const int NUM_COLS = 9;
 
-
-// for color
+// for colored output
 namespace Color {
     enum Code {
         FG_RED = 31,
@@ -32,7 +33,7 @@ namespace Color {
         }
     };
 }
-
+//instances of Modifier to use with cout for color
 Color::Modifier red(Color::FG_RED);
 Color::Modifier def(Color::FG_DEFAULT);
 Color::Modifier blue(Color::FG_BLUE);
@@ -42,20 +43,39 @@ Color::Modifier bg_def(Color::BG_DEFAULT);
 Color::Modifier black(Color::FG_BLACK);
 
 
-
+//Sudoku board
+//Contains functions to solve a board
+//and to generate a puzzle
 class Board {
     friend class Solver;
 public:
+    //default constructor that initializes all board elements to UNASSIGNED
     Board();
+    //constructor which initializes board from a puzzle that a user inputs
     Board(int input[9][9]);
+    //prints the current board
     void print_board();
+    //prints the transpose of the current board
     void print_board_transpose();
 private:
+    //2-D array that stores the Sudoku board elements
     int grid[9][9];
+    //helper functions used in print_board and print_board_transpose.
+    //trans is a boolean value used to tell the helpers if they were called
+    //from print_board or print_board_transpose
     void print_helper_underline(int i, int j, bool trans);
     void print_helper_nounderline(int i, int j, bool trans);
+
+    //The following three functions check the rules for Sudoku:
+    //checks the 3x3 grid enclosed by row_from and col_from for duplicates
     bool check_three_grid_dup(int row_from, int col_from);
+    //checks for duplicates in row
+    //returns false if there are duplicates
+    //returns true if there are no duplicates
     bool check_row_dup(int row);
+    //checks for duplicates in col
+    //returns false if there are duplicates
+    //returns true if there are no duplicates
     bool check_col_dup(int col);  
 };
 
@@ -81,16 +101,16 @@ void Board::print_helper_nounderline(int i, int j, bool trans) {
         num = i;
     }
     if (grid[i][j] == UNASSIGNED) {
-        cout <<bg_white<< red << "-" << def << bg_def;
+        cout << bg_white<< red << "-" << def << bg_def;
     }
     else {
-        cout <<black << bg_white << grid[i][j] << def << bg_def;
+        cout << black << bg_white << grid[i][j] << def << bg_def;
     }
     if (num % 3 == 2) {
-        cout <<black << bg_white<< "|" <<def << bg_def;
+        cout << black << bg_white<< "|" << def << bg_def;
         return;
     }
-    cout <<bg_white <<black<< " " << bg_def <<def;
+    cout << bg_white << black << " " << bg_def << def;
 }
 
 void Board::print_helper_underline(int i, int j, bool trans) {
