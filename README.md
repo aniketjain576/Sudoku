@@ -12,5 +12,5 @@ The format of the input is as follows:
 A sudoku game consists of a 9x9 board and the code only reads the first 9 lines of input.txt.  
 ## Running the Code ##
 Board.cpp should not be included in the build.  
-The code will ask you whether you want to solve or generate a puzzle. Simply follow along! 
+The code will ask you whether you want to solve or generate a puzzle. Simply follow along!  
 Remember to type the puzzle you want solved in input.txt before running main.cpp. 
