@@ -1,6 +1,6 @@
 # Sudoku #
 This code can solve any Sudoku puzzle you give it. (if it has a solution)  
-It can also generate Sudoku puzzles of varying difficulties for you!
+It can also generate Sudoku puzzles of varying difficulties for you!  
 The program uses a branch and bound algorithm to efficiently solve puzzles in under 2 seconds!
 
 ## Input ##
